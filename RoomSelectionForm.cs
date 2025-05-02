@@ -73,7 +73,7 @@ namespace HotelManagementSystem
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void reserve_button_Click(object sender, EventArgs e)
         {
             if (roomDataGridView.SelectedRows.Count == 0)
             {
@@ -99,8 +99,7 @@ namespace HotelManagementSystem
               
                 string roomNumber = selectedRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
 
-                // Confirm with user
-                string invStatus;
+                
                 if (Status == "Available")
                 {
                     reservation_window reservation_Window = new reservation_window();

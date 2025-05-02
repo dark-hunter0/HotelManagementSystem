@@ -19,7 +19,7 @@ namespace HotelManagementSystem
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomSelectionForm));
-            this.Add_button = new System.Windows.Forms.Button();
+            this.reserve_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.filtersButton = new System.Windows.Forms.Button();
             this.roomDataGridView = new System.Windows.Forms.DataGridView();
@@ -34,15 +34,15 @@ namespace HotelManagementSystem
             ((System.ComponentModel.ISupportInitialize)(this.roomDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // Add_button
+            // reserve_button
             // 
-            this.Add_button.Location = new System.Drawing.Point(1273, 618);
-            this.Add_button.Name = "Add_button";
-            this.Add_button.Size = new System.Drawing.Size(135, 42);
-            this.Add_button.TabIndex = 1;
-            this.Add_button.Text = "Reserve Room";
-            this.Add_button.UseVisualStyleBackColor = true;
-            this.Add_button.Click += new System.EventHandler(this.button1_Click);
+            this.reserve_button.Location = new System.Drawing.Point(1273, 618);
+            this.reserve_button.Name = "reserve_button";
+            this.reserve_button.Size = new System.Drawing.Size(135, 42);
+            this.reserve_button.TabIndex = 1;
+            this.reserve_button.Text = "Reserve Room";
+            this.reserve_button.UseVisualStyleBackColor = true;
+            this.reserve_button.Click += new System.EventHandler(this.reserve_button_Click);
             // 
             // label1
             // 
@@ -151,7 +151,7 @@ namespace HotelManagementSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1476, 683);
             this.Controls.Add(this.Home_button);
-            this.Controls.Add(this.Add_button);
+            this.Controls.Add(this.reserve_button);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.filtersButton);
             this.Controls.Add(this.roomDataGridView);
@@ -166,7 +166,7 @@ namespace HotelManagementSystem
 
         #endregion
 
-        private System.Windows.Forms.Button Add_button;
+        private System.Windows.Forms.Button reserve_button;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button filtersButton;
         private System.Windows.Forms.DataGridView roomDataGridView;

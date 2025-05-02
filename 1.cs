@@ -664,7 +664,17 @@ namespace HotelManagementSystem
         }
 
 
+        private void Home_button_Click(object sender, EventArgs e)
+        {
+            this.Hide(); 
 
+            using (MainMenu mainMenu = new MainMenu())
+            {
+                mainMenu.ShowDialog(); 
+            }
+
+            this.Close();
+        }
 
 
         private void Add_button_Click(object sender, EventArgs e)
@@ -713,7 +723,7 @@ namespace HotelManagementSystem
                         cmd.Parameters.AddWithValue("@Number", Controls["txtRoom_Number"].Text);
                         cmd.Parameters.AddWithValue("@Type", Controls["txtRoom_Type"].Text);
                         cmd.Parameters.AddWithValue("@Floor", Controls["txtFloor"].Text);
-                        cmd.Parameters.AddWithValue("@Status", Controls["txtStatus"].Text);
+                        cmd.Parameters.AddWithValue("@Status", Controls["txtstatus_box"].Text);
                         cmd.Parameters.AddWithValue("@Price", Controls["txtSTD_Night_Price"].Text);
                         cmd.Parameters.AddWithValue("@HotelZip", Controls["txtHotel_ZIP_Code"].Text);
                         break;
@@ -724,7 +734,7 @@ namespace HotelManagementSystem
                         cmd.Parameters.AddWithValue("@NID", Controls["txtNational_ID"].Text);
                         cmd.Parameters.AddWithValue("@Role", Controls["txtRole"].Text);
                         cmd.Parameters.AddWithValue("@FName", Controls["txtFirst_Name"].Text);
-                        cmd.Parameters.AddWithValue("@Status", Controls["txtStatus"].Text);
+                        cmd.Parameters.AddWithValue("@Status", Controls["txtStatus_box"].Text);
                         cmd.Parameters.AddWithValue("@Mid", Controls["txtMid_Init"].Text);
                         cmd.Parameters.AddWithValue("@LName", Controls["txtLast_Name"].Text);
                         cmd.Parameters.AddWithValue("@Salary", Controls["txtSalary"].Text);
