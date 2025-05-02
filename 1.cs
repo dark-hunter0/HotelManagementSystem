@@ -9,6 +9,7 @@ namespace HotelManagementSystem
 {
     public partial class system_management : Form
     {
+        string connStr = @"Database=HotelReservationSystem;Integrated Security=True;";
         public system_management()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace HotelManagementSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Choose_table_SelectedIndexChanged(object sender, EventArgs e)
@@ -216,7 +217,7 @@ namespace HotelManagementSystem
                         Size = new Size(200, 20),
                         Tag = "Dynamic"
                     };
-                    room_type_box.Items.AddRange(new object[] { "Standard", "Deluxe", "Suite"});
+                    room_type_box.Items.AddRange(new object[] { "Standard", "Deluxe", "Suite" });
                     room_type_box.DropDownStyle = ComboBoxStyle.DropDownList;
                     this.Controls.Add(room_type);
                     this.Controls.Add(room_type_box);
@@ -246,7 +247,7 @@ namespace HotelManagementSystem
                         Size = new Size(120, 20),
                         Tag = "Dynamic"
                     };
-                    
+
                     ComboBox status_box = new ComboBox
                     {
                         Name = "txtstatus_box",
@@ -326,7 +327,7 @@ namespace HotelManagementSystem
                         Size = new Size(200, 20),
                         Tag = "Dynamic"
                     };
-                    role_box.Items.AddRange(new object[] { "Manager", "Cleaner", "Technician" , "Chef" , "Supervisor", "Server"});
+                    role_box.Items.AddRange(new object[] { "Manager", "Cleaner", "Technician", "Chef", "Supervisor", "Server" });
                     role_box.DropDownStyle = ComboBoxStyle.DropDownList;
 
 
@@ -631,7 +632,7 @@ namespace HotelManagementSystem
                         TickFrequency = 1,
                         SmallChange = 1,
                         LargeChange = 1,
-                        Value = 3, 
+                        Value = 3,
                         Tag = "Dynamic"
                     };
 
@@ -655,7 +656,7 @@ namespace HotelManagementSystem
                     this.Controls.Add(Comment_box);
 
                     break;
-                    
+
             }
         }
 
@@ -674,15 +675,21 @@ namespace HotelManagementSystem
                 }
             }
 
-            string connStr = @"Database=HotelReservationSystem;Integrated Security=True;"; 
+            
 
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
+                string selectedTable = Choose_table.SelectedItem?.ToString();
+                if (string.IsNullOrEmpty(selectedTable))
+                {
+                    MessageBox.Show("No table selected.");
+                    return;
+                }
 
-                switch (Choose_table.SelectedItem.ToString())
+                switch (Choose_table.SelectedItem?.ToString())
                 {
                     case "Hotel":
                         cmd.CommandText = @"INSERT INTO Hotel (Zip_code, City, Country, Hotel_state, Street_Name, Room_Count, Email)
@@ -741,11 +748,11 @@ namespace HotelManagementSystem
 
                     case "Review":
                         cmd.CommandText = @"INSERT INTO Review (Guest_National_ID, Hotel_ZIP_Code, Rating, Comment)
-                                    VALUES (@SID, @SName, @Price, @GuestID)";
-                        cmd.Parameters.AddWithValue("@SID", Controls["txtGuest_National_ID"].Text);
-                        cmd.Parameters.AddWithValue("@SName", Controls["txtHotel_ZIP_Code"].Text);
-                        cmd.Parameters.AddWithValue("@Price",  ((TrackBar)Controls["sliderRating"]).Value);
-                        cmd.Parameters.AddWithValue("@GuestID", Controls["txtComment_box"].Text);
+                                    VALUES (@GNID, @HZIP, @Rating, @cmnt)";
+                        cmd.Parameters.AddWithValue("@GNID", Controls["txtGuest_National_ID"].Text);
+                        cmd.Parameters.AddWithValue("@HZIP", Controls["txtHotel_ZIP_Code"].Text);
+                        cmd.Parameters.AddWithValue("@Rating", ((TrackBar)Controls["sliderRating"]).Value);
+                        cmd.Parameters.AddWithValue("@cmnt", Controls["txtComment_box"].Text);
                         break;
                 }
 
@@ -762,6 +769,98 @@ namespace HotelManagementSystem
         }
 
 
+
+
+
+        // private void Delete_button_click(object sender, EventArgs e)
+        // {
+        //     string selectedTable = Choose_table.SelectedItem?.ToString();
+        //     if (string.IsNullOrEmpty(selectedTable)) return;
+        //
+        //     Dictionary<string, SqlParameter> parameters = new Dictionary<string, SqlParameter>();
+        //
+        //     switch (selectedTable)
+        //     {
+        //         case "Hotel":
+        //             if (!string.IsNullOrEmpty(Controls["txtZip_code"].Text))
+        //                 parameters.Add("Zip_code", new SqlParameter("@Zip", Controls["txtZip_code"].Text));
+        //             break;
+        //
+        //         case "Room":
+        //             if (!string.IsNullOrEmpty(Controls["txtRoom_ID"].Text))
+        //                 parameters.Add("Room_ID", new SqlParameter("@ID", Controls["txtRoom_ID"].Text));
+        //             break;
+        //
+        //         case "Staff":
+        //             if (!string.IsNullOrEmpty(Controls["txtNational_ID"].Text))
+        //                 parameters.Add("National_ID", new SqlParameter("@NID", Controls["txtNational_ID"].Text));
+        //             break;
+        //
+        //         case "Department":
+        //             if (!string.IsNullOrEmpty(Controls["txtDepartment_ID"].Text))
+        //                 parameters.Add("Department_ID", new SqlParameter("@DeptID", Controls["txtDepartment_ID"].Text));
+        //             break;
+        //
+        //         case "Service":
+        //             if (!string.IsNullOrEmpty(Controls["txtService_ID"].Text))
+        //                 parameters.Add("Service_ID", new SqlParameter("@SID", Controls["txtService_ID"].Text));
+        //             break;
+        //
+        //         case "Review":
+        //             if (!string.IsNullOrEmpty(Controls["txtGuest_National_ID"].Text) && !string.IsNullOrEmpty(Controls["txtHotel_ZIP_Code"].Text))
+        //             {
+        //                 parameters.Add("Guest_National_ID", new SqlParameter("@GID", Controls["txtGuest_National_ID"].Text));
+        //                 parameters.Add("Hotel_ZIP_Code", new SqlParameter("@HZIP", Controls["txtHotel_ZIP_Code"].Text));
+        //             }
+        //             break;
+        //
+        //         default:
+        //             MessageBox.Show("Invalid table selection.");
+        //             return;
+        //     }
+        //
+        //     if (parameters.Count == 0)
+        //     {
+        //         MessageBox.Show("Please fill in the primary key(s).");
+        //         return;
+        //     }
+        //
+        //     using (SqlConnection conn = new SqlConnection(connStr))
+        //     {
+        //         conn.Open();
+        //
+        //         // Check if the record exists
+        //         string checkCmdText = $"SELECT COUNT(*) FROM {selectedTable} WHERE " +
+        //                               string.Join(" AND ", parameters.Select(p => $"{p.Key} = {p.Value.ParameterName}"));
+        //
+        //         using (SqlCommand checkCmd = new SqlCommand(checkCmdText, conn))
+        //         {
+        //             checkCmd.Parameters.AddRange(parameters.Values.ToArray());
+        //             int count = (int)checkCmd.ExecuteScalar();
+        //
+        //             if (count == 0)
+        //             {
+        //                 MessageBox.Show("Record not found.");
+        //                 return;
+        //             }
+        //         }
+        //
+        //         // Perform deletion
+        //         string deleteCmdText = $"DELETE FROM {selectedTable} WHERE " +
+        //                                string.Join(" AND ", parameters.Select(p => $"{p.Key} = {p.Value.ParameterName}"));
+        //
+        //         using (SqlCommand deleteCmd = new SqlCommand(deleteCmdText, conn))
+        //         {
+        //             foreach (var param in parameters.Values)
+        //             {
+        //                 deleteCmd.Parameters.Add(new SqlParameter(param.ParameterName, param.Value));
+        //             }
+        //
+        //             deleteCmd.ExecuteNonQuery();
+        //             MessageBox.Show("Record deleted successfully.");
+        //         }
+        //     }
+        // }
 
 
     }

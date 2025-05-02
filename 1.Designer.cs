@@ -1,10 +1,13 @@
-﻿namespace HotelManagementSystem
+﻿using System.Drawing;
+
+namespace HotelManagementSystem
 {
     partial class system_management
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.ComboBox Choose_table;
         private System.Windows.Forms.Button Add_button;
+       // private System.Windows.Forms.Button Delete_button;
 
         protected override void Dispose(bool disposing)
         {
@@ -21,6 +24,7 @@
         {
             this.Choose_table = new System.Windows.Forms.ComboBox();
             this.Add_button = new System.Windows.Forms.Button();
+           // this.Delete_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Choose_table
@@ -48,6 +52,19 @@
             this.Add_button.TabIndex = 1;
             this.Add_button.Text = "Add";
             this.Add_button.UseVisualStyleBackColor = true;
+            // 
+            // Delete_button_button
+            // 
+            // this.Delete_button.Location = new System.Drawing.Point(1000, 618);
+            // this.Delete_button.Name = "Delete_button";
+            // this.Delete_button.Size = new System.Drawing.Size(91, 42);
+            // this.Delete_button.TabIndex = 1;
+            // this.Delete_button.Text = "Delete";
+            // this.Delete_button.BackColor = Color.MediumVioletRed;
+            // this.Delete_button.ForeColor = Color.OrangeRed;
+            // this.Delete_button.UseVisualStyleBackColor = true;
+            // this.Delete_button.Click += new System.EventHandler(this.Delete_button_click);
+
             this.Add_button.Click += new System.EventHandler(this.Add_button_Click);
             // 
             // Form1
@@ -57,10 +74,13 @@
             this.ClientSize = new System.Drawing.Size(1476, 683);
             this.Controls.Add(this.Add_button);
             this.Controls.Add(this.Choose_table);
+           // this.Controls.Add(this.Delete_button);
+
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            
         }
 
         #endregion
