@@ -209,13 +209,15 @@ namespace HotelManagementSystem
                         Size = new Size(120, 20),
                         Tag = "Dynamic"
                     };
-                    TextBox room_type_box = new TextBox
+                    ComboBox room_type_box = new ComboBox
                     {
                         Name = "txtRoom_Type",
                         Location = new Point(200, 160),
                         Size = new Size(200, 20),
                         Tag = "Dynamic"
                     };
+                    room_type_box.Items.AddRange(new object[] { "Standard", "Deluxe", "Suite"});
+                    room_type_box.DropDownStyle = ComboBoxStyle.DropDownList;
                     this.Controls.Add(room_type);
                     this.Controls.Add(room_type_box);
 
@@ -233,6 +235,7 @@ namespace HotelManagementSystem
                         Size = new Size(200, 20),
                         Tag = "Dynamic"
                     };
+
                     this.Controls.Add(floor);
                     this.Controls.Add(floor_box);
 
@@ -243,13 +246,16 @@ namespace HotelManagementSystem
                         Size = new Size(120, 20),
                         Tag = "Dynamic"
                     };
-                    TextBox status_box = new TextBox
+                    
+                    ComboBox status_box = new ComboBox
                     {
-                        Name = "txtStatus",
+                        Name = "txtstatus_box",
                         Location = new Point(200, 220),
                         Size = new Size(200, 20),
                         Tag = "Dynamic"
                     };
+                    status_box.Items.AddRange(new object[] { "Available", "Occupied", "Maintenance" });
+                    status_box.DropDownStyle = ComboBoxStyle.DropDownList;
                     this.Controls.Add(status);
                     this.Controls.Add(status_box);
 
@@ -313,13 +319,17 @@ namespace HotelManagementSystem
                         Size = new Size(120, 20),
                         Tag = "Dynamic"
                     };
-                    TextBox role_box = new TextBox
+                    ComboBox role_box = new ComboBox
                     {
-                        Name = "txtRole",
+                        Name = "txtrole_box",
                         Location = new Point(200, 130),
                         Size = new Size(200, 20),
                         Tag = "Dynamic"
                     };
+                    role_box.Items.AddRange(new object[] { "Manager", "Cleaner", "Technician" , "Chef" , "Supervisor", "Server"});
+                    role_box.DropDownStyle = ComboBoxStyle.DropDownList;
+
+
                     this.Controls.Add(role);
                     this.Controls.Add(role_box);
 
@@ -347,13 +357,15 @@ namespace HotelManagementSystem
                         Size = new Size(120, 20),
                         Tag = "Dynamic"
                     };
-                    TextBox status_staff_box = new TextBox
+                    ComboBox status_staff_box = new ComboBox
                     {
-                        Name = "txtStatus",
+                        Name = "txtstatus_box",
                         Location = new Point(200, 190),
                         Size = new Size(200, 20),
                         Tag = "Dynamic"
                     };
+                    status_staff_box.Items.AddRange(new object[] { "Active", "Inactive", "On Leave" });
+                    status_staff_box.DropDownStyle = ComboBoxStyle.DropDownList;
                     this.Controls.Add(status_staff);
                     this.Controls.Add(status_staff_box);
 
@@ -565,6 +577,85 @@ namespace HotelManagementSystem
                     this.Controls.Add(guest_id);
                     this.Controls.Add(guest_id_box);
                     break;
+
+                case ("Review"):
+
+                    Label Guest_National_ID = new Label
+                    {
+                        Text = "Guest's National ID",
+                        Location = new Point(50, 100),
+                        Size = new Size(120, 20),
+                        Tag = "Dynamic"
+                    };
+                    TextBox Guest_National_ID_box = new TextBox
+                    {
+                        Name = "txtGuest_National_ID",
+                        Location = new Point(200, 100),
+                        Size = new Size(200, 20),
+                        Tag = "Dynamic"
+                    };
+                    this.Controls.Add(Guest_National_ID);
+                    this.Controls.Add(Guest_National_ID_box);
+
+                    Label Hotel_ZIP_Code = new Label
+                    {
+                        Text = "Hotel ZIP Code",
+                        Location = new Point(50, 130),
+                        Size = new Size(120, 20),
+                        Tag = "Dynamic"
+                    };
+                    TextBox Hotel_ZIP_Code_box = new TextBox
+                    {
+                        Name = "txtHotel_ZIP_Code",
+                        Location = new Point(200, 130),
+                        Size = new Size(200, 20),
+                        Tag = "Dynamic"
+                    };
+                    this.Controls.Add(Hotel_ZIP_Code);
+                    this.Controls.Add(Hotel_ZIP_Code_box);
+
+                    Label Rating = new Label
+                    {
+                        Text = "Rating",
+                        Location = new Point(50, 160),
+                        Size = new Size(120, 20),
+                        Tag = "Dynamic"
+                    };
+                    TrackBar Rating_slider = new TrackBar
+                    {
+                        Name = "sliderRating",
+                        Location = new Point(200, 160),
+                        Size = new Size(200, 45),
+                        Minimum = 1,
+                        Maximum = 5,
+                        TickFrequency = 1,
+                        SmallChange = 1,
+                        LargeChange = 1,
+                        Value = 3, 
+                        Tag = "Dynamic"
+                    };
+
+                    this.Controls.Add(Rating);
+                    this.Controls.Add(Rating_slider);
+                    Label Comment = new Label
+                    {
+                        Text = "Comment",
+                        Location = new Point(50, 250),
+                        Size = new Size(120, 20),
+                        Tag = "Dynamic"
+                    };
+                    TextBox Comment_box = new TextBox
+                    {
+                        Name = "txtComment_box",
+                        Location = new Point(200, 250),
+                        Size = new Size(200, 200),
+                        Tag = "Dynamic"
+                    };
+                    this.Controls.Add(Comment);
+                    this.Controls.Add(Comment_box);
+
+                    break;
+                    
             }
         }
 
@@ -646,6 +737,15 @@ namespace HotelManagementSystem
                         cmd.Parameters.AddWithValue("@SName", Controls["txtService_Name"].Text);
                         cmd.Parameters.AddWithValue("@Price", Controls["txtPrice"].Text);
                         cmd.Parameters.AddWithValue("@GuestID", Controls["txtGuest_National_ID"].Text);
+                        break;
+
+                    case "Review":
+                        cmd.CommandText = @"INSERT INTO Review (Guest_National_ID, Hotel_ZIP_Code, Rating, Comment)
+                                    VALUES (@SID, @SName, @Price, @GuestID)";
+                        cmd.Parameters.AddWithValue("@SID", Controls["txtGuest_National_ID"].Text);
+                        cmd.Parameters.AddWithValue("@SName", Controls["txtHotel_ZIP_Code"].Text);
+                        cmd.Parameters.AddWithValue("@Price",  ((TrackBar)Controls["sliderRating"]).Value);
+                        cmd.Parameters.AddWithValue("@GuestID", Controls["txtComment_box"].Text);
                         break;
                 }
 

@@ -31,7 +31,8 @@
             "Room",
             "Staff",
             "Department",
-            "Service"});
+            "Service",
+            "Review"});
             this.Choose_table.Location = new System.Drawing.Point(609, 43);
             this.Choose_table.Name = "Choose_table";
             this.Choose_table.Size = new System.Drawing.Size(216, 28);
