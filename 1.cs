@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace HotelManagementSystem
 {
-    public partial class Form1 : Form
+    public partial class system_management : Form
     {
-        public Form1()
+        public system_management()
         {
             InitializeComponent();
             this.SuspendLayout();
@@ -17,13 +18,14 @@ namespace HotelManagementSystem
             // 
             this.ClientSize = new System.Drawing.Size(1147, 667);
             this.Name = "Form1";
+            this.BackColor = Color.PaleTurquoise;
             this.ResumeLayout(false);
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Optional: add any startup logic here
+            
         }
 
         private void Choose_table_SelectedIndexChanged(object sender, EventArgs e)
@@ -567,46 +569,99 @@ namespace HotelManagementSystem
         }
 
 
-           
-        
+
+
 
         private void Add_button_Click(object sender, EventArgs e)
         {
             foreach (TextBox tb in this.Controls.OfType<TextBox>())
             {
-                
-                
                 if (string.IsNullOrWhiteSpace(tb.Text))
                 {
-                    MessageBox.Show("Missing data 3eb kda");
+                    MessageBox.Show("Missing data");
                     return;
-                }
-                
-                switch (Choose_table.SelectedItem.ToString())
-                {
-                    case "Hotel":
-
-                        break;
-                    case "Room":
-
-                        break;
-                    case "Staff":
-
-                        break;
-
-                    case "Department":
-
-                        break;
-                    case "Service":
-
-                        break;
                 }
             }
 
+            string connStr = @"Database=HotelReservationSystem;Integrated Security=True;"; 
 
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
 
-            MessageBox.Show("Done", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                switch (Choose_table.SelectedItem.ToString())
+                {
+                    case "Hotel":
+                        cmd.CommandText = @"INSERT INTO Hotel (Zip_code, City, Country, Hotel_state, Street_Name, Room_Count, Email)
+                                    VALUES (@Zip, @City, @Country, @State, @Street, @Rooms, @Email)";
+                        cmd.Parameters.AddWithValue("@Zip", Controls["txtZip_code"].Text);
+                        cmd.Parameters.AddWithValue("@City", Controls["txtCity"].Text);
+                        cmd.Parameters.AddWithValue("@Country", Controls["txtCountry"].Text);
+                        cmd.Parameters.AddWithValue("@State", Controls["txtState"].Text);
+                        cmd.Parameters.AddWithValue("@Street", Controls["txtStreet_Name"].Text);
+                        cmd.Parameters.AddWithValue("@Rooms", Controls["txtRoom_Count"].Text);
+                        cmd.Parameters.AddWithValue("@Email", Controls["txtEmail"].Text);
+                        break;
+
+                    case "Room":
+                        cmd.CommandText = @"INSERT INTO Room (Room_ID, Room_Number, Room_Type, room_Floor, room_Status, STD_Night_Price, Hotel_ZIP_Code)
+                                    VALUES (@ID, @Number, @Type, @Floor, @Status, @Price, @HotelZip)";
+                        cmd.Parameters.AddWithValue("@ID", Controls["txtRoom_ID"].Text);
+                        cmd.Parameters.AddWithValue("@Number", Controls["txtRoom_Number"].Text);
+                        cmd.Parameters.AddWithValue("@Type", Controls["txtRoom_Type"].Text);
+                        cmd.Parameters.AddWithValue("@Floor", Controls["txtFloor"].Text);
+                        cmd.Parameters.AddWithValue("@Status", Controls["txtStatus"].Text);
+                        cmd.Parameters.AddWithValue("@Price", Controls["txtSTD_Night_Price"].Text);
+                        cmd.Parameters.AddWithValue("@HotelZip", Controls["txtHotel_ZIP_Code"].Text);
+                        break;
+
+                    case "Staff":
+                        cmd.CommandText = @"INSERT INTO Staff (National_ID, Staff_Role, First_Name, staff_Status, Mid_Init, Last_Name, Salary, Supervisor_national_id, Department_ID)
+                                    VALUES (@NID, @Role, @FName, @Status, @Mid, @LName, @Salary, @SupervisorID, @DeptID)";
+                        cmd.Parameters.AddWithValue("@NID", Controls["txtNational_ID"].Text);
+                        cmd.Parameters.AddWithValue("@Role", Controls["txtRole"].Text);
+                        cmd.Parameters.AddWithValue("@FName", Controls["txtFirst_Name"].Text);
+                        cmd.Parameters.AddWithValue("@Status", Controls["txtStatus"].Text);
+                        cmd.Parameters.AddWithValue("@Mid", Controls["txtMid_Init"].Text);
+                        cmd.Parameters.AddWithValue("@LName", Controls["txtLast_Name"].Text);
+                        cmd.Parameters.AddWithValue("@Salary", Controls["txtSalary"].Text);
+                        cmd.Parameters.AddWithValue("@SupervisorID", Controls["txtSupervisor_national_id"].Text);
+                        cmd.Parameters.AddWithValue("@DeptID", Controls["txtDepartment_ID"].Text);
+                        break;
+
+                    case "Department":
+                        cmd.CommandText = @"INSERT INTO Department (Department_ID, Department_Name, Hotel_ZIP_Code)
+                                    VALUES (@DeptID, @DeptName, @HotelZip)";
+                        cmd.Parameters.AddWithValue("@DeptID", Controls["txtDepartment_ID"].Text);
+                        cmd.Parameters.AddWithValue("@DeptName", Controls["txtDepartment_Name"].Text);
+                        cmd.Parameters.AddWithValue("@HotelZip", Controls["txtHotel_ZIP_Code"].Text);
+                        break;
+
+                    case "Service":
+                        cmd.CommandText = @"INSERT INTO Service (Service_ID, ServiceName, Price, Guest_National_ID)
+                                    VALUES (@SID, @SName, @Price, @GuestID)";
+                        cmd.Parameters.AddWithValue("@SID", Controls["txtService_ID"].Text);
+                        cmd.Parameters.AddWithValue("@SName", Controls["txtService_Name"].Text);
+                        cmd.Parameters.AddWithValue("@Price", Controls["txtPrice"].Text);
+                        cmd.Parameters.AddWithValue("@GuestID", Controls["txtGuest_National_ID"].Text);
+                        break;
+                }
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Done", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
         }
+
+
 
 
     }

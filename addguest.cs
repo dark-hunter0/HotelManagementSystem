@@ -42,7 +42,7 @@ namespace HotelManagementSystem
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Guests can't have same national ID");
+                    MessageBox.Show("Invalid Input, National ID already exists");
                 } }
             else {
                 MessageBox.Show("Please fill all Fields");

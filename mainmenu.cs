@@ -52,7 +52,7 @@ namespace HotelManagementSystem
                 Location = new Point(300, 350),
                 Font = new Font("Segoe UI", 12)
             };
-            mngBtn.Click += (s, e) => { new Form1().Show(); this.Hide(); };
+            mngBtn.Click += (s, e) => { new system_management().Show(); this.Hide(); };
             this.Controls.Add(guestBtn);
             this.Controls.Add(roomsBtn);
             this.Controls.Add(mngBtn);

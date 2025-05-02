@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -20,6 +21,7 @@ namespace HotelManagementSystem
             // 
             this.ClientSize = new System.Drawing.Size(1058, 716);
             this.Name = "Guest_Select";
+            this.BackColor = Color.PaleTurquoise;
             this.ResumeLayout(false);
 
         }

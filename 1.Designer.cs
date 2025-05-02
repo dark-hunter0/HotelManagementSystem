@@ -1,6 +1,6 @@
 ﻿namespace HotelManagementSystem
 {
-    partial class Form1
+    partial class system_management
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.ComboBox Choose_table;

@@ -1,4 +1,6 @@
-﻿namespace HotelManagementSystem
+﻿using System.Drawing;
+
+namespace HotelManagementSystem
 {
     partial class Guest_Select
     {
@@ -110,7 +112,7 @@
             this.Guest_NID.Multiline = true;
             this.Guest_NID.Name = "Guest_NID";
             this.Guest_NID.ReadOnly = true;
-            this.Guest_NID.Size = new System.Drawing.Size(227, 33);
+            this.Guest_NID.Size = new System.Drawing.Size(235, 33);
             this.Guest_NID.TabIndex = 4;
             this.Guest_NID.Text = "Guest\'s National ID ";
             this.Guest_NID.Visible = false;
@@ -133,7 +135,7 @@
             this.Guest_First_Name.Multiline = true;
             this.Guest_First_Name.Name = "Guest_First_Name";
             this.Guest_First_Name.ReadOnly = true;
-            this.Guest_First_Name.Size = new System.Drawing.Size(227, 33);
+            this.Guest_First_Name.Size = new System.Drawing.Size(235, 33);
             this.Guest_First_Name.TabIndex = 7;
             this.Guest_First_Name.Text = "Guest\'s First Name ";
             this.Guest_First_Name.Visible = false;
@@ -156,7 +158,7 @@
             this.GuestMiddleinitial.Multiline = true;
             this.GuestMiddleinitial.Name = "GuestMiddleinitial";
             this.GuestMiddleinitial.ReadOnly = true;
-            this.GuestMiddleinitial.Size = new System.Drawing.Size(227, 33);
+            this.GuestMiddleinitial.Size = new System.Drawing.Size(235, 33);
             this.GuestMiddleinitial.TabIndex = 10;
             this.GuestMiddleinitial.Text = "Guest\'s Middle initial";
             this.GuestMiddleinitial.Visible = false;
@@ -209,7 +211,7 @@
             this.GuestLastName.Multiline = true;
             this.GuestLastName.Name = "GuestLastName";
             this.GuestLastName.ReadOnly = true;
-            this.GuestLastName.Size = new System.Drawing.Size(227, 33);
+            this.GuestLastName.Size = new System.Drawing.Size(235, 33);
             this.GuestLastName.TabIndex = 23;
             this.GuestLastName.Text = "Guest\'s Last Name";
             this.GuestLastName.Visible = false;
@@ -222,7 +224,7 @@
             this.GuestEmail.Multiline = true;
             this.GuestEmail.Name = "GuestEmail";
             this.GuestEmail.ReadOnly = true;
-            this.GuestEmail.Size = new System.Drawing.Size(227, 33);
+            this.GuestEmail.Size = new System.Drawing.Size(235, 33);
             this.GuestEmail.TabIndex = 24;
             this.GuestEmail.Text = "Guest\'s Email";
             this.GuestEmail.Visible = false;
@@ -235,7 +237,7 @@
             this.GuestAddress.Multiline = true;
             this.GuestAddress.Name = "GuestAddress";
             this.GuestAddress.ReadOnly = true;
-            this.GuestAddress.Size = new System.Drawing.Size(227, 33);
+            this.GuestAddress.Size = new System.Drawing.Size(235, 33);
             this.GuestAddress.TabIndex = 25;
             this.GuestAddress.Text = "Guest\'s Address";
             this.GuestAddress.Visible = false;
@@ -248,7 +250,7 @@
             this.GuestPhoneNumber.Multiline = true;
             this.GuestPhoneNumber.Name = "GuestPhoneNumber";
             this.GuestPhoneNumber.ReadOnly = true;
-            this.GuestPhoneNumber.Size = new System.Drawing.Size(227, 33);
+            this.GuestPhoneNumber.Size = new System.Drawing.Size(235, 33);
             this.GuestPhoneNumber.TabIndex = 26;
             this.GuestPhoneNumber.Text = "Guest\'s Phone Number";
             this.GuestPhoneNumber.Visible = false;
@@ -264,6 +266,7 @@
             this.Guest_Info_Box.TabStop = true;
             this.Guest_Info_Box.Text = "Guest Information";
             this.Guest_Info_Box.Visible = false;
+            this.Guest_Info_Box.BackColor = Color.LightGray;
             // 
             // Delete_Guest
             // 

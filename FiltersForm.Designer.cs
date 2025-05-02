@@ -6,14 +6,14 @@ namespace HotelManagementSystem
     {
         private System.ComponentModel.IContainer components = null;
         private Label roomTypeLabel;
-        private ComboBox roomTypeComboBox;
+        public ComboBox roomTypeComboBox;
         private Label priceLabel;
-        private TextBox minTextBox;
-        private TextBox maxTextBox;
+        public TextBox minTextBox;
+        public TextBox maxTextBox;
         private Label branchLabel;
-        private ComboBox branchComboBox;
+        public ComboBox branchComboBox;
         private Label statusLabel;
-        private CheckBox statusCheckBox;
+        public CheckBox statusCheckBox;
         private Button okButton;
 
         protected override void Dispose(bool disposing)
@@ -40,7 +40,7 @@ namespace HotelManagementSystem
 
             // Room Type ComboBox
             roomTypeComboBox = new ComboBox();
-            roomTypeComboBox.Items.AddRange(new object[] { "Single", "Double", "Suite" });
+            roomTypeComboBox.Items.AddRange(new object[] { "Standard", "Deluxe", "Suite" });
             roomTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             roomTypeComboBox.Location = new System.Drawing.Point(120, 18);
             this.Controls.Add(roomTypeComboBox);
@@ -71,7 +71,7 @@ namespace HotelManagementSystem
 
             // Branch ComboBox
             branchComboBox = new ComboBox();
-            branchComboBox.Items.AddRange(new object[] { "Downtown", "Airport", "Seaside" });
+            branchComboBox.Items.AddRange(new object[] { "Cairo", "Giza", "Alexandria" });
             branchComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             branchComboBox.Location = new System.Drawing.Point(120, 98);
             this.Controls.Add(branchComboBox);
