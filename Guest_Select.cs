@@ -163,5 +163,16 @@ namespace HotelManagementSystem
             }
         }
 
+        private void Home_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            using (MainMenu mainMenu = new MainMenu())
+            {
+                mainMenu.ShowDialog();
+            }
+
+            this.Close();
+        }
     }
 }

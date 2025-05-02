@@ -52,32 +52,37 @@ namespace HotelManagementSystem
             this.Guest_Info_Box = new System.Windows.Forms.GroupBox();
             this.Delete_Guest = new System.Windows.Forms.Button();
             this.Update_Guest = new System.Windows.Forms.Button();
+            this.Home_button = new System.Windows.Forms.Button();
+            this.Guest_Info_Box.SuspendLayout();
             this.SuspendLayout();
             // 
             // Guest_NID_Text
             // 
             this.Guest_NID_Text.BackColor = System.Drawing.Color.PaleTurquoise;
             this.Guest_NID_Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Guest_NID_Text.Location = new System.Drawing.Point(33, 25);
+            this.Guest_NID_Text.Location = new System.Drawing.Point(37, 31);
+            this.Guest_NID_Text.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Guest_NID_Text.Multiline = true;
             this.Guest_NID_Text.Name = "Guest_NID_Text";
-            this.Guest_NID_Text.Size = new System.Drawing.Size(249, 33);
+            this.Guest_NID_Text.Size = new System.Drawing.Size(280, 40);
             this.Guest_NID_Text.TabIndex = 0;
             this.Guest_NID_Text.Text = "Enter Guest\'s National ID ";
             // 
             // Input_NID
             // 
             this.Input_NID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Input_NID.Location = new System.Drawing.Point(303, 29);
+            this.Input_NID.Location = new System.Drawing.Point(341, 36);
+            this.Input_NID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Input_NID.Name = "Input_NID";
-            this.Input_NID.Size = new System.Drawing.Size(194, 27);
+            this.Input_NID.Size = new System.Drawing.Size(218, 31);
             this.Input_NID.TabIndex = 1;
             // 
             // Confirm_NID
             // 
-            this.Confirm_NID.Location = new System.Drawing.Point(555, 29);
+            this.Confirm_NID.Location = new System.Drawing.Point(624, 36);
+            this.Confirm_NID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Confirm_NID.Name = "Confirm_NID";
-            this.Confirm_NID.Size = new System.Drawing.Size(90, 30);
+            this.Confirm_NID.Size = new System.Drawing.Size(101, 38);
             this.Confirm_NID.TabIndex = 2;
             this.Confirm_NID.Text = "Confirm";
             this.Confirm_NID.UseVisualStyleBackColor = true;
@@ -87,9 +92,9 @@ namespace HotelManagementSystem
             // 
             this.Guest_Not_Registerd.AutoSize = true;
             this.Guest_Not_Registerd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Guest_Not_Registerd.Location = new System.Drawing.Point(453, 80);
+            this.Guest_Not_Registerd.Location = new System.Drawing.Point(510, 100);
             this.Guest_Not_Registerd.Name = "Guest_Not_Registerd";
-            this.Guest_Not_Registerd.Size = new System.Drawing.Size(251, 20);
+            this.Guest_Not_Registerd.Size = new System.Drawing.Size(290, 25);
             this.Guest_Not_Registerd.TabIndex = 3;
             this.Guest_Not_Registerd.Text = "Guest not registerd ? Add Guest";
             this.Guest_Not_Registerd.Click += new System.EventHandler(this.Guest_Not_Registerd_Click);
@@ -97,10 +102,11 @@ namespace HotelManagementSystem
             // View_NID
             // 
             this.View_NID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.View_NID.Location = new System.Drawing.Point(379, 133);
+            this.View_NID.Location = new System.Drawing.Point(426, 166);
+            this.View_NID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.View_NID.Name = "View_NID";
             this.View_NID.ReadOnly = true;
-            this.View_NID.Size = new System.Drawing.Size(194, 27);
+            this.View_NID.Size = new System.Drawing.Size(218, 31);
             this.View_NID.TabIndex = 5;
             this.View_NID.Visible = false;
             // 
@@ -108,11 +114,12 @@ namespace HotelManagementSystem
             // 
             this.Guest_NID.BackColor = System.Drawing.Color.PaleTurquoise;
             this.Guest_NID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Guest_NID.Location = new System.Drawing.Point(112, 129);
+            this.Guest_NID.Location = new System.Drawing.Point(126, 161);
+            this.Guest_NID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Guest_NID.Multiline = true;
             this.Guest_NID.Name = "Guest_NID";
             this.Guest_NID.ReadOnly = true;
-            this.Guest_NID.Size = new System.Drawing.Size(235, 33);
+            this.Guest_NID.Size = new System.Drawing.Size(264, 40);
             this.Guest_NID.TabIndex = 4;
             this.Guest_NID.Text = "Guest\'s National ID ";
             this.Guest_NID.Visible = false;
@@ -120,10 +127,11 @@ namespace HotelManagementSystem
             // View_FN
             // 
             this.View_FN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.View_FN.Location = new System.Drawing.Point(379, 191);
+            this.View_FN.Location = new System.Drawing.Point(426, 239);
+            this.View_FN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.View_FN.Name = "View_FN";
             this.View_FN.ReadOnly = true;
-            this.View_FN.Size = new System.Drawing.Size(194, 27);
+            this.View_FN.Size = new System.Drawing.Size(218, 31);
             this.View_FN.TabIndex = 8;
             this.View_FN.Visible = false;
             // 
@@ -131,11 +139,12 @@ namespace HotelManagementSystem
             // 
             this.Guest_First_Name.BackColor = System.Drawing.Color.PaleTurquoise;
             this.Guest_First_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Guest_First_Name.Location = new System.Drawing.Point(112, 187);
+            this.Guest_First_Name.Location = new System.Drawing.Point(126, 234);
+            this.Guest_First_Name.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Guest_First_Name.Multiline = true;
             this.Guest_First_Name.Name = "Guest_First_Name";
             this.Guest_First_Name.ReadOnly = true;
-            this.Guest_First_Name.Size = new System.Drawing.Size(235, 33);
+            this.Guest_First_Name.Size = new System.Drawing.Size(264, 40);
             this.Guest_First_Name.TabIndex = 7;
             this.Guest_First_Name.Text = "Guest\'s First Name ";
             this.Guest_First_Name.Visible = false;
@@ -143,10 +152,11 @@ namespace HotelManagementSystem
             // View_MI
             // 
             this.View_MI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.View_MI.Location = new System.Drawing.Point(379, 242);
+            this.View_MI.Location = new System.Drawing.Point(426, 302);
+            this.View_MI.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.View_MI.Name = "View_MI";
             this.View_MI.ReadOnly = true;
-            this.View_MI.Size = new System.Drawing.Size(194, 27);
+            this.View_MI.Size = new System.Drawing.Size(218, 31);
             this.View_MI.TabIndex = 11;
             this.View_MI.Visible = false;
             // 
@@ -154,11 +164,12 @@ namespace HotelManagementSystem
             // 
             this.GuestMiddleinitial.BackColor = System.Drawing.Color.PaleTurquoise;
             this.GuestMiddleinitial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GuestMiddleinitial.Location = new System.Drawing.Point(112, 238);
+            this.GuestMiddleinitial.Location = new System.Drawing.Point(126, 298);
+            this.GuestMiddleinitial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GuestMiddleinitial.Multiline = true;
             this.GuestMiddleinitial.Name = "GuestMiddleinitial";
             this.GuestMiddleinitial.ReadOnly = true;
-            this.GuestMiddleinitial.Size = new System.Drawing.Size(235, 33);
+            this.GuestMiddleinitial.Size = new System.Drawing.Size(264, 40);
             this.GuestMiddleinitial.TabIndex = 10;
             this.GuestMiddleinitial.Text = "Guest\'s Middle initial";
             this.GuestMiddleinitial.Visible = false;
@@ -166,40 +177,40 @@ namespace HotelManagementSystem
             // View_LN
             // 
             this.View_LN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.View_LN.Location = new System.Drawing.Point(379, 299);
+            this.View_LN.Location = new System.Drawing.Point(426, 374);
+            this.View_LN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.View_LN.Name = "View_LN";
-            this.View_LN.ReadOnly = false;
-            this.View_LN.Size = new System.Drawing.Size(194, 27);
+            this.View_LN.Size = new System.Drawing.Size(218, 31);
             this.View_LN.TabIndex = 14;
             this.View_LN.Visible = false;
             // 
             // View_Email
             // 
             this.View_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.View_Email.Location = new System.Drawing.Point(379, 349);
+            this.View_Email.Location = new System.Drawing.Point(426, 436);
+            this.View_Email.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.View_Email.Name = "View_Email";
-            this.View_Email.ReadOnly = false;
-            this.View_Email.Size = new System.Drawing.Size(194, 27);
+            this.View_Email.Size = new System.Drawing.Size(218, 31);
             this.View_Email.TabIndex = 17;
             this.View_Email.Visible = false;
             // 
             // View_Add
             // 
             this.View_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.View_Add.Location = new System.Drawing.Point(379, 402);
+            this.View_Add.Location = new System.Drawing.Point(426, 502);
+            this.View_Add.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.View_Add.Name = "View_Add";
-            this.View_Add.ReadOnly = false;
-            this.View_Add.Size = new System.Drawing.Size(194, 27);
+            this.View_Add.Size = new System.Drawing.Size(218, 31);
             this.View_Add.TabIndex = 20;
             this.View_Add.Visible = false;
             // 
             // View_Phone_Num
             // 
             this.View_Phone_Num.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.View_Phone_Num.Location = new System.Drawing.Point(379, 454);
+            this.View_Phone_Num.Location = new System.Drawing.Point(426, 568);
+            this.View_Phone_Num.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.View_Phone_Num.Name = "View_Phone_Num";
-            this.View_Phone_Num.ReadOnly = false;
-            this.View_Phone_Num.Size = new System.Drawing.Size(194, 27);
+            this.View_Phone_Num.Size = new System.Drawing.Size(218, 31);
             this.View_Phone_Num.TabIndex = 22;
             this.View_Phone_Num.Visible = false;
             // 
@@ -207,11 +218,12 @@ namespace HotelManagementSystem
             // 
             this.GuestLastName.BackColor = System.Drawing.Color.PaleTurquoise;
             this.GuestLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GuestLastName.Location = new System.Drawing.Point(112, 295);
+            this.GuestLastName.Location = new System.Drawing.Point(126, 369);
+            this.GuestLastName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GuestLastName.Multiline = true;
             this.GuestLastName.Name = "GuestLastName";
             this.GuestLastName.ReadOnly = true;
-            this.GuestLastName.Size = new System.Drawing.Size(235, 33);
+            this.GuestLastName.Size = new System.Drawing.Size(264, 40);
             this.GuestLastName.TabIndex = 23;
             this.GuestLastName.Text = "Guest\'s Last Name";
             this.GuestLastName.Visible = false;
@@ -220,11 +232,12 @@ namespace HotelManagementSystem
             // 
             this.GuestEmail.BackColor = System.Drawing.Color.PaleTurquoise;
             this.GuestEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GuestEmail.Location = new System.Drawing.Point(112, 343);
+            this.GuestEmail.Location = new System.Drawing.Point(126, 429);
+            this.GuestEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GuestEmail.Multiline = true;
             this.GuestEmail.Name = "GuestEmail";
             this.GuestEmail.ReadOnly = true;
-            this.GuestEmail.Size = new System.Drawing.Size(235, 33);
+            this.GuestEmail.Size = new System.Drawing.Size(264, 40);
             this.GuestEmail.TabIndex = 24;
             this.GuestEmail.Text = "Guest\'s Email";
             this.GuestEmail.Visible = false;
@@ -233,11 +246,12 @@ namespace HotelManagementSystem
             // 
             this.GuestAddress.BackColor = System.Drawing.Color.PaleTurquoise;
             this.GuestAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GuestAddress.Location = new System.Drawing.Point(112, 396);
+            this.GuestAddress.Location = new System.Drawing.Point(126, 495);
+            this.GuestAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GuestAddress.Multiline = true;
             this.GuestAddress.Name = "GuestAddress";
             this.GuestAddress.ReadOnly = true;
-            this.GuestAddress.Size = new System.Drawing.Size(235, 33);
+            this.GuestAddress.Size = new System.Drawing.Size(264, 40);
             this.GuestAddress.TabIndex = 25;
             this.GuestAddress.Text = "Guest\'s Address";
             this.GuestAddress.Visible = false;
@@ -246,35 +260,38 @@ namespace HotelManagementSystem
             // 
             this.GuestPhoneNumber.BackColor = System.Drawing.Color.PaleTurquoise;
             this.GuestPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GuestPhoneNumber.Location = new System.Drawing.Point(112, 448);
+            this.GuestPhoneNumber.Location = new System.Drawing.Point(126, 560);
+            this.GuestPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GuestPhoneNumber.Multiline = true;
             this.GuestPhoneNumber.Name = "GuestPhoneNumber";
             this.GuestPhoneNumber.ReadOnly = true;
-            this.GuestPhoneNumber.Size = new System.Drawing.Size(235, 33);
+            this.GuestPhoneNumber.Size = new System.Drawing.Size(264, 40);
             this.GuestPhoneNumber.TabIndex = 26;
             this.GuestPhoneNumber.Text = "Guest\'s Phone Number";
             this.GuestPhoneNumber.Visible = false;
             // 
             // Guest_Info_Box
             // 
+            this.Guest_Info_Box.BackColor = System.Drawing.Color.LightGray;
             this.Guest_Info_Box.Controls.Add(this.Delete_Guest);
             this.Guest_Info_Box.Controls.Add(this.Update_Guest);
-            this.Guest_Info_Box.Location = new System.Drawing.Point(86, 103);
+            this.Guest_Info_Box.Location = new System.Drawing.Point(97, 129);
+            this.Guest_Info_Box.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Guest_Info_Box.Name = "Guest_Info_Box";
-            this.Guest_Info_Box.Size = new System.Drawing.Size(559, 459);
+            this.Guest_Info_Box.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Guest_Info_Box.Size = new System.Drawing.Size(629, 574);
             this.Guest_Info_Box.TabIndex = 27;
-            this.Guest_Info_Box.TabStop = true;
             this.Guest_Info_Box.Text = "Guest Information";
             this.Guest_Info_Box.Visible = false;
-            this.Guest_Info_Box.BackColor = Color.LightGray;
             // 
             // Delete_Guest
             // 
             this.Delete_Guest.BackColor = System.Drawing.Color.Tomato;
             this.Delete_Guest.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Delete_Guest.Location = new System.Drawing.Point(293, 422);
+            this.Delete_Guest.Location = new System.Drawing.Point(330, 528);
+            this.Delete_Guest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Delete_Guest.Name = "Delete_Guest";
-            this.Delete_Guest.Size = new System.Drawing.Size(118, 31);
+            this.Delete_Guest.Size = new System.Drawing.Size(133, 39);
             this.Delete_Guest.TabIndex = 2;
             this.Delete_Guest.Text = "Delete Guest";
             this.Delete_Guest.UseVisualStyleBackColor = false;
@@ -284,20 +301,33 @@ namespace HotelManagementSystem
             // 
             this.Update_Guest.BackColor = System.Drawing.Color.PaleGreen;
             this.Update_Guest.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Update_Guest.Location = new System.Drawing.Point(141, 422);
+            this.Update_Guest.Location = new System.Drawing.Point(159, 528);
+            this.Update_Guest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Update_Guest.Name = "Update_Guest";
-            this.Update_Guest.Size = new System.Drawing.Size(112, 31);
+            this.Update_Guest.Size = new System.Drawing.Size(126, 39);
             this.Update_Guest.TabIndex = 1;
             this.Update_Guest.Text = "Update Guest";
             this.Update_Guest.UseVisualStyleBackColor = false;
             this.Update_Guest.Click += new System.EventHandler(this.Update_Guest_Click);
             // 
+            // Home_button
+            // 
+            this.Home_button.BackColor = System.Drawing.Color.Transparent;
+            this.Home_button.Image = ((System.Drawing.Image)(resources.GetObject("Home_button.Image")));
+            this.Home_button.Location = new System.Drawing.Point(1423, 10);
+            this.Home_button.Name = "Home_button";
+            this.Home_button.Size = new System.Drawing.Size(120, 86);
+            this.Home_button.TabIndex = 28;
+            this.Home_button.UseVisualStyleBackColor = false;
+            this.Home_button.Click += new System.EventHandler(this.Home_button_Click);
+            // 
             // Guest_Select
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(808, 495);
+            this.ClientSize = new System.Drawing.Size(1746, 727);
+            this.Controls.Add(this.Home_button);
             this.Controls.Add(this.GuestPhoneNumber);
             this.Controls.Add(this.GuestAddress);
             this.Controls.Add(this.GuestEmail);
@@ -317,9 +347,10 @@ namespace HotelManagementSystem
             this.Controls.Add(this.Input_NID);
             this.Controls.Add(this.Guest_NID_Text);
             this.Controls.Add(this.Guest_Info_Box);
-            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Guest_Select";
             this.Text = "Guest_Select";
+            this.Guest_Info_Box.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,6 +379,7 @@ namespace HotelManagementSystem
         private System.Windows.Forms.GroupBox Guest_Info_Box;
         private System.Windows.Forms.Button Delete_Guest;
         private System.Windows.Forms.Button Update_Guest;
+        private System.Windows.Forms.Button Home_button;
     }
 }
 

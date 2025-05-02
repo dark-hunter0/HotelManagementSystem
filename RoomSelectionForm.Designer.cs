@@ -18,6 +18,7 @@ namespace HotelManagementSystem
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomSelectionForm));
             this.Add_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.filtersButton = new System.Windows.Forms.Button();
@@ -29,16 +30,17 @@ namespace HotelManagementSystem
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Home_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.roomDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // Add_button
             // 
-            this.Add_button.Location = new System.Drawing.Point(1317, 618);
+            this.Add_button.Location = new System.Drawing.Point(1273, 618);
             this.Add_button.Name = "Add_button";
-            this.Add_button.Size = new System.Drawing.Size(91, 42);
+            this.Add_button.Size = new System.Drawing.Size(135, 42);
             this.Add_button.TabIndex = 1;
-            this.Add_button.Text = "Add";
+            this.Add_button.Text = "Reserve Room";
             this.Add_button.UseVisualStyleBackColor = true;
             this.Add_button.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -83,42 +85,72 @@ namespace HotelManagementSystem
             this.roomDataGridView.Size = new System.Drawing.Size(1378, 500);
             this.roomDataGridView.TabIndex = 4;
             // 
-            // Columns
+            // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "Room Number";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
             this.dataGridViewTextBoxColumn2.HeaderText = "Room Type";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
             this.dataGridViewTextBoxColumn3.HeaderText = "Floor";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
             this.dataGridViewTextBoxColumn4.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
             this.dataGridViewTextBoxColumn5.HeaderText = "Night Price";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
             this.dataGridViewTextBoxColumn6.HeaderText = "Hotel";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
             this.dataGridViewTextBoxColumn7.HeaderText = "Room ID";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-
+            // 
+            // Home_button
+            // 
+            this.Home_button.BackColor = System.Drawing.Color.Transparent;
+            this.Home_button.Image = ((System.Drawing.Image)(resources.GetObject("Home_button.Image")));
+            this.Home_button.Location = new System.Drawing.Point(12, 12);
+            this.Home_button.Name = "Home_button";
+            this.Home_button.Size = new System.Drawing.Size(96, 72);
+            this.Home_button.TabIndex = 5;
+            this.Home_button.UseVisualStyleBackColor = false;
+            this.Home_button.Click += new System.EventHandler(this.Home_button_Click);
             // 
             // RoomSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1476, 683);
+            this.Controls.Add(this.Home_button);
             this.Controls.Add(this.Add_button);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.filtersButton);
@@ -129,6 +161,7 @@ namespace HotelManagementSystem
             ((System.ComponentModel.ISupportInitialize)(this.roomDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -144,5 +177,6 @@ namespace HotelManagementSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private Button Home_button;
     }
 }

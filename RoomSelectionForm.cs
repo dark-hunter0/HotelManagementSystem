@@ -102,18 +102,12 @@ namespace HotelManagementSystem
                 // Confirm with user
                 string invStatus;
                 if (Status == "Available")
-                    invStatus = "Occupied";
-                else
-                    invStatus = "Available";
-                    DialogResult result = MessageBox.Show($"Mark room {roomNumber} as {invStatus}?",
-                        "Confirm Occupation",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
                 {
-                    UpdateRoomStatus(roomId, Status, invStatus);
+                    reservation_window reservation_Window = new reservation_window();
+                    reservation_Window.Show();
                 }
+                else;
+                   
             }
             catch (Exception ex)
             {
@@ -266,5 +260,21 @@ namespace HotelManagementSystem
             }
         }
 
+        private void Home_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            using (MainMenu mainMenu = new MainMenu())
+            {
+                mainMenu.ShowDialog();
+            }
+
+            this.Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

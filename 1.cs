@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -7,6 +9,7 @@ using System.Windows.Forms;
 
 namespace HotelManagementSystem
 {
+   
     public partial class system_management : Form
     {
         string connStr = @"Database=HotelReservationSystem;Integrated Security=True;";
@@ -768,8 +771,126 @@ namespace HotelManagementSystem
             }
         }
 
+        // private void show_button_Click(object sender, EventArgs e)
+        // {
+        //     string selectedTable = Choose_table.SelectedItem?.ToString();
+        //     if (string.IsNullOrEmpty(selectedTable))
+        //     {
+        //         MessageBox.Show("No table selected.");
+        //         return;
+        //     }
+        //
+        //     var oldFields = this.Controls
+        //         .OfType<Control>()
+        //          .Where(c => c.Tag != null && c.Tag.ToString() == "Dynamic")
+        //          .ToList();
+        //
+        //     foreach (var control in oldFields)
+        //     {
+        //         if (control.Name == "txtZip_code" || control.Name == "txtRoom_ID"
+        //             || control.Name == "txtNational_ID" || control.Name == "txtDepartment_ID" ||
+        //            control.Name ==  "txtService_ID" || control.Name == "txtGuest_National_ID" )
+        //         { continue; }
+        //         this.Controls.Remove(control);
+        //         control.Dispose();
+        //     }
+        //     string query = $"SELECT * FROM [{selectedTable}]";
+        //     DataTable dataTable = new DataTable();
+        //     try
+        //     {
+        //         using (SqlConnection connection = new SqlConnection(connStr))
+        //         {
+        //             using (SqlCommand command = new SqlCommand(query, connection))
+        //             {
+        //                 // No parameters needed for SELECT * FROM Table
+        //                 connection.Open();
+        //                 using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+        //                 {
+        //                     adapter.Fill(dataTable);
+        //                 }
+        //             }
+        //         }
+        //
+        //         // Bind the DataTable to the DataGridView
+        //         // Assumes you have a DataGridView named dataGridView1 on your form
+        //         if (dataGridView1 != null)
+        //         {
+        //             dataGridView1.DataSource = dataTable;
+        //             // Optional: Auto-resize columns
+        //             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        //         }
+        //         else
+        //         {
+        //             MessageBox.Show("DataGridView control (dataGridView1) not found on the form.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //         }
+        //     }
+        //     catch (SqlException sqlEx)
+        //     {
+        //         MessageBox.Show($"Database error executing query:\n{sqlEx.Message}\n\nQuery:\n{query}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         MessageBox.Show($"An unexpected error occurred:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //     }
+        //
+        //
+        //     using (SqlConnection conn = new SqlConnection(connStr))
+        //     {
+        //         conn.Open();
+        //         SqlCommand cmd = new SqlCommand();
+        //         cmd.Connection = conn;
+        //
+        //         switch (selectedTable)
+        //         {
+        //             case "Hotel":
+        //                 cmd.CommandText = "SELECT * FROM Hotel WHERE Zip_code = @Zip";
+        //                 cmd.Parameters.AddWithValue("@Zip", Controls["txtZip_code"].Text);
+        //                 SqlDataReader reader = cmd.ExecuteReader();
+        //                 if (reader.Read())
+        //                 {
+        //
+        //                 }
+        //                 else
+        //                 {
+        //                     MessageBox.Show("No matching data found.");
+        //                 }
+        //                 break;
+        //
+        //             case "Room":
+        //                 cmd.CommandText = "SELECT * FROM Room WHERE Room_ID = @ID";
+        //                 cmd.Parameters.AddWithValue("@ID", Controls["txtRoom_ID"].Text);
+        //                 break;
+        //
+        //             case "Staff":
+        //                 cmd.CommandText = "SELECT * FROM Staff WHERE National_ID = @NID";
+        //                 cmd.Parameters.AddWithValue("@NID", Controls["txtNational_ID"].Text);
+        //                 break;
+        //
+        //             case "Department":
+        //                 cmd.CommandText = "SELECT * FROM Department WHERE Department_ID = @DeptID";
+        //                 cmd.Parameters.AddWithValue("@DeptID", Controls["txtDepartment_ID"].Text);
+        //                 break;
+        //
+        //             case "Service":
+        //                 cmd.CommandText = "SELECT * FROM Service WHERE Service_ID = @SID";
+        //                 cmd.Parameters.AddWithValue("@SID", Controls["txtService_ID"].Text);
+        //                 break;
+        //
+        //             case "Review":
+        //                 cmd.CommandText = "SELECT * FROM Review WHERE Guest_National_ID = @GNID";
+        //                 cmd.Parameters.AddWithValue("@GNID", Controls["txtGuest_National_ID"].Text);
+        //                 break;
+        //
+        //             default:
+        //                 MessageBox.Show("Unknown table.");
+        //                 return;
+        //         }
+        //
+        //
+        //     }
+        // }
 
-
+           
 
 
         // private void Delete_button_click(object sender, EventArgs e)

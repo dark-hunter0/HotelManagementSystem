@@ -22,9 +22,10 @@ namespace HotelManagementSystem
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(system_management));
             this.Choose_table = new System.Windows.Forms.ComboBox();
             this.Add_button = new System.Windows.Forms.Button();
-           // this.Delete_button = new System.Windows.Forms.Button();
+            this.Home_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Choose_table
@@ -52,37 +53,36 @@ namespace HotelManagementSystem
             this.Add_button.TabIndex = 1;
             this.Add_button.Text = "Add";
             this.Add_button.UseVisualStyleBackColor = true;
-            // 
-            // Delete_button_button
-            // 
-            // this.Delete_button.Location = new System.Drawing.Point(1000, 618);
-            // this.Delete_button.Name = "Delete_button";
-            // this.Delete_button.Size = new System.Drawing.Size(91, 42);
-            // this.Delete_button.TabIndex = 1;
-            // this.Delete_button.Text = "Delete";
-            // this.Delete_button.BackColor = Color.MediumVioletRed;
-            // this.Delete_button.ForeColor = Color.OrangeRed;
-            // this.Delete_button.UseVisualStyleBackColor = true;
-            // this.Delete_button.Click += new System.EventHandler(this.Delete_button_click);
-
             this.Add_button.Click += new System.EventHandler(this.Add_button_Click);
             // 
-            // Form1
+            // Home_button
+            // 
+            this.Home_button.BackColor = System.Drawing.Color.Transparent;
+            this.Home_button.Image = ((System.Drawing.Image)(resources.GetObject("Home_button.Image")));
+            this.Home_button.Location = new System.Drawing.Point(24, 29);
+            this.Home_button.Name = "Home_button";
+            this.Home_button.Size = new System.Drawing.Size(120, 86);
+            this.Home_button.TabIndex = 2;
+            this.Home_button.UseVisualStyleBackColor = false;
+            this.Home_button.Click += new System.EventHandler(this.Home_button_Click);
+            // 
+            // system_management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1476, 683);
+            this.Controls.Add(this.Home_button);
             this.Controls.Add(this.Add_button);
             this.Controls.Add(this.Choose_table);
-           // this.Controls.Add(this.Delete_button);
-
-            this.Name = "Form1";
+            this.Name = "system_management";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button Home_button;
     }
 }
