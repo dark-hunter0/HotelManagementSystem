@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace HotelManagementSystem
 {
@@ -24,7 +25,8 @@ namespace HotelManagementSystem
         {
             this.Choose_table = new System.Windows.Forms.ComboBox();
             this.Add_button = new System.Windows.Forms.Button();
-           // this.Delete_button = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.homeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Choose_table
@@ -52,37 +54,52 @@ namespace HotelManagementSystem
             this.Add_button.TabIndex = 1;
             this.Add_button.Text = "Add";
             this.Add_button.UseVisualStyleBackColor = true;
-            // 
-            // Delete_button_button
-            // 
-            // this.Delete_button.Location = new System.Drawing.Point(1000, 618);
-            // this.Delete_button.Name = "Delete_button";
-            // this.Delete_button.Size = new System.Drawing.Size(91, 42);
-            // this.Delete_button.TabIndex = 1;
-            // this.Delete_button.Text = "Delete";
-            // this.Delete_button.BackColor = Color.MediumVioletRed;
-            // this.Delete_button.ForeColor = Color.OrangeRed;
-            // this.Delete_button.UseVisualStyleBackColor = true;
-            // this.Delete_button.Click += new System.EventHandler(this.Delete_button_click);
-
             this.Add_button.Click += new System.EventHandler(this.Add_button_Click);
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1205, 618);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 42);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Show";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.show_button_Click);
+            // 
+            // homeButton
+            // 
+            this.homeButton.BackColor = System.Drawing.Color.Transparent;
+            this.homeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.homeButton.Image = global::HotelManagementSystem.Properties.Resources.home;
+            this.homeButton.Location = new System.Drawing.Point(10, 10);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(93, 70);
+            this.homeButton.TabIndex = 0;
+            this.homeButton.Text = "Home";
+            this.homeButton.UseVisualStyleBackColor = false;
+            this.homeButton.UseWaitCursor = true;
+            // 
+            // system_management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1476, 683);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.homeButton);
             this.Controls.Add(this.Add_button);
             this.Controls.Add(this.Choose_table);
-           // this.Controls.Add(this.Delete_button);
-
-            this.Name = "Form1";
+            this.Name = "system_management";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            
+
         }
 
         #endregion
+
+        private Button homeButton;
+        private Button button1;
     }
+
 }

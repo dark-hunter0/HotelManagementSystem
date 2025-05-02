@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Windows.Forms;
 
 namespace HotelManagementSystem
 {
+   
     public partial class system_management : Form
     {
         string connStr = @"Database=HotelReservationSystem;Integrated Security=True;";
@@ -767,6 +769,76 @@ namespace HotelManagementSystem
                 }
             }
         }
+        
+        private void show_button_Click(object sender, EventArgs e)
+        {
+            string selectedTable = Choose_table.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(selectedTable))
+            {
+                MessageBox.Show("No table selected.");
+                return;
+            }
+
+           
+
+           // DataGridView dataGrid = new DataGridView();
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                switch (selectedTable)
+                {
+                    case "Hotel":
+                        cmd.CommandText = "SELECT * FROM Hotel WHERE Zip_code = @Zip";
+                        cmd.Parameters.AddWithValue("@Zip", Controls["txtZip_code"].Text);
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.Read())
+                        {
+                         
+                        }
+                        else
+                        {
+                            MessageBox.Show("No matching data found.");
+                        }
+                        break;
+
+                    case "Room":
+                        cmd.CommandText = "SELECT * FROM Room WHERE Room_ID = @ID";
+                        cmd.Parameters.AddWithValue("@ID", Controls["txtRoom_ID"].Text);
+                        break;
+
+                    case "Staff":
+                        cmd.CommandText = "SELECT * FROM Staff WHERE National_ID = @NID";
+                        cmd.Parameters.AddWithValue("@NID", Controls["txtNational_ID"].Text);
+                        break;
+
+                    case "Department":
+                        cmd.CommandText = "SELECT * FROM Department WHERE Department_ID = @DeptID";
+                        cmd.Parameters.AddWithValue("@DeptID", Controls["txtDepartment_ID"].Text);
+                        break;
+
+                    case "Service":
+                        cmd.CommandText = "SELECT * FROM Service WHERE Service_ID = @SID";
+                        cmd.Parameters.AddWithValue("@SID", Controls["txtService_ID"].Text);
+                        break;
+
+                    case "Review":
+                        cmd.CommandText = "SELECT * FROM Review WHERE Guest_National_ID = @GNID";
+                        cmd.Parameters.AddWithValue("@GNID", Controls["txtGuest_National_ID"].Text);
+                        break;
+
+                    default:
+                        MessageBox.Show("Unknown table.");
+                        return;
+                }
+
+                
+            }
+        }
+
 
 
 
