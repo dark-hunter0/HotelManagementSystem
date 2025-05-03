@@ -32,8 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Checkin_date = new System.Windows.Forms.MonthCalendar();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Checkout_date = new System.Windows.Forms.MonthCalendar();
             this.guest_NID = new System.Windows.Forms.TextBox();
             this.manager_NID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -80,35 +78,19 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(258, 573);
+            this.label3.Location = new System.Drawing.Point(550, 556);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(188, 35);
+            this.label3.Size = new System.Drawing.Size(245, 35);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Checkin Date";
+            this.label3.Text = "Checkin/out Date";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Checkin_date
             // 
-            this.Checkin_date.Location = new System.Drawing.Point(189, 616);
+            this.Checkin_date.Location = new System.Drawing.Point(522, 600);
             this.Checkin_date.Name = "Checkin_date";
             this.Checkin_date.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(924, 572);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(208, 35);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Checkout Date";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // Checkout_date
-            // 
-            this.Checkout_date.Location = new System.Drawing.Point(866, 616);
-            this.Checkout_date.Name = "Checkout_date";
-            this.Checkout_date.TabIndex = 5;
+            this.Checkin_date.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.Checkin_date_DateChanged);
             // 
             // guest_NID
             // 
@@ -280,7 +262,7 @@
             this.Confirm_btn.Font = new System.Drawing.Font("Microsoft Tai Le", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Confirm_btn.Location = new System.Drawing.Point(593, 879);
             this.Confirm_btn.Name = "Confirm_btn";
-            this.Confirm_btn.Size = new System.Drawing.Size(135, 67);
+            this.Confirm_btn.Size = new System.Drawing.Size(163, 67);
             this.Confirm_btn.TabIndex = 26;
             this.Confirm_btn.Text = "Confirm";
             this.Confirm_btn.UseVisualStyleBackColor = true;
@@ -310,8 +292,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.manager_NID);
             this.Controls.Add(this.guest_NID);
-            this.Controls.Add(this.Checkout_date);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.Checkin_date);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -329,7 +309,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MonthCalendar Checkin_date;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox guest_NID;
         private System.Windows.Forms.TextBox manager_NID;
         private System.Windows.Forms.Label label5;
@@ -342,7 +321,6 @@
         private System.Windows.Forms.TextBox sideGuest2_name;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.MonthCalendar Checkout_date;
         public System.Windows.Forms.ComboBox payment_type;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;

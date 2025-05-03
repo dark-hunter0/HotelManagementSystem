@@ -5,13 +5,17 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using System.Drawing;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Net.NetworkInformation;
 
 namespace HotelManagementSystem
 {
     public partial class RoomSelectionForm : Form
     {
         private string connectionString = @"Database=HotelReservationSystem;Integrated Security=True;";
-
+        public int roomId;
+        public string Status;
+        public int roomNumber;
         public RoomSelectionForm()
         {
             this.BackColor = Color.PaleTurquoise;
@@ -93,19 +97,26 @@ namespace HotelManagementSystem
 
             try
             {
-                int roomId = Convert.ToInt32(selectedRow.Cells["dataGridViewTextBoxColumn7"].Value);
+                roomId = Convert.ToInt32(selectedRow.Cells["dataGridViewTextBoxColumn7"].Value);
 
-                string Status =Convert.ToString( selectedRow.Cells["dataGridViewTextBoxColumn4"].Value);
+                 Status =Convert.ToString( selectedRow.Cells["dataGridViewTextBoxColumn4"].Value);
               
-                string roomNumber = selectedRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
+                roomNumber = Convert.ToInt32(selectedRow.Cells["dataGridViewTextBoxColumn1"].Value);
+                float price = (float)Convert.ToDouble(selectedRow.Cells["dataGridViewTextBoxColumn5"].Value);
 
-                
                 if (Status == "Available")
                 {
-                    reservation_window reservation_Window = new reservation_window();
-                    reservation_Window.Show();
+                    reservation_window reservation_Window = new reservation_window(roomId, price);
+                    if (reservation_Window.ShowDialog() == DialogResult.OK)
+                    {
+                        UpdateRoomStatus(roomId, Status, "Occupied");
+                        LoadRoomData();
+                    }
                 }
-                else;
+                else
+                {
+                    MessageBox.Show("Room is occupied");
+                }
                    
             }
             catch (Exception ex)
@@ -169,7 +180,7 @@ namespace HotelManagementSystem
                 float maxValue = filtersForm.maxValue;
                 String branch = filtersForm.branch;
                 bool status = filtersForm.status;
-                // Only run this after OK is pressed
+                
                 LoadFilteredData( room_types, minValue, maxValue, branch, status);
             }
         }
