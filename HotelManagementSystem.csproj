@@ -53,17 +53,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="1.cs">
+    <Compile Include="systemManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1.Designer.cs">
-      <DependentUpon>1.cs</DependentUpon>
+    <Compile Include="systemManagement.Designer.cs">
+      <DependentUpon>systemManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="reservationWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="reservationWindow.Designer.cs">
+      <DependentUpon>reservationWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -116,11 +116,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="1.resx">
-      <DependentUpon>1.cs</DependentUpon>
+    <EmbeddedResource Include="systemManagement.resx">
+      <DependentUpon>systemManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="reservationWindow.resx">
+      <DependentUpon>reservationWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Guest_Select.resx">
       <DependentUpon>Guest_Select.cs</DependentUpon>
