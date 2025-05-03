@@ -26,12 +26,10 @@ namespace HotelManagementSystem
             this.ResumeLayout(false);
 
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
         private void Choose_table_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Clear old dynamic fields
@@ -663,7 +661,6 @@ namespace HotelManagementSystem
             }
         }
 
-
         private void Home_button_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -676,37 +673,32 @@ namespace HotelManagementSystem
             this.Close();
         }
 
-
         private void Add_button_Click(object sender, EventArgs e)
         {
-            foreach (TextBox tb in this.Controls.OfType<TextBox>())
-            {
-                if (string.IsNullOrWhiteSpace(tb.Text))
-                {
-                    MessageBox.Show("Missing data");
-                    return;
-                }
-            }
-
-
-
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 string selectedTable = Choose_table.SelectedItem?.ToString();
+
                 if (string.IsNullOrEmpty(selectedTable))
                 {
                     MessageBox.Show("No table selected.");
                     return;
                 }
 
-                switch (Choose_table.SelectedItem?.ToString())
+                switch (selectedTable)
                 {
                     case "Hotel":
-                        cmd.CommandText = @"INSERT INTO Hotel (Zip_code, City, Country, Hotel_state, Street_Name, Room_Count, Email)
-                                    VALUES (@Zip, @City, @Country, @State, @Street, @Rooms, @Email)";
+                        cmd.CommandText = @"UPDATE Hotel SET 
+                                        City = @City, 
+                                        Country = @Country, 
+                                        Hotel_state = @State, 
+                                        Street_Name = @Street, 
+                                        Room_Count = @Rooms, 
+                                        Email = @Email
+                                    WHERE Zip_code = @Zip";
                         cmd.Parameters.AddWithValue("@Zip", Controls["txtZip_code"].Text);
                         cmd.Parameters.AddWithValue("@City", Controls["txtCity"].Text);
                         cmd.Parameters.AddWithValue("@Country", Controls["txtCountry"].Text);
@@ -717,8 +709,14 @@ namespace HotelManagementSystem
                         break;
 
                     case "Room":
-                        cmd.CommandText = @"INSERT INTO Room (Room_ID, Room_Number, Room_Type, room_Floor, room_Status, STD_Night_Price, Hotel_ZIP_Code)
-                                    VALUES (@ID, @Number, @Type, @Floor, @Status, @Price, @HotelZip)";
+                        cmd.CommandText = @"UPDATE Room SET 
+                                        Room_Number = @Number, 
+                                        Room_Type = @Type, 
+                                        room_Floor = @Floor, 
+                                        room_Status = @Status, 
+                                        STD_Night_Price = @Price, 
+                                        Hotel_ZIP_Code = @HotelZip
+                                    WHERE Room_ID = @ID";
                         cmd.Parameters.AddWithValue("@ID", Controls["txtRoom_ID"].Text);
                         cmd.Parameters.AddWithValue("@Number", Controls["txtRoom_Number"].Text);
                         cmd.Parameters.AddWithValue("@Type", Controls["txtRoom_Type"].Text);
@@ -729,8 +727,16 @@ namespace HotelManagementSystem
                         break;
 
                     case "Staff":
-                        cmd.CommandText = @"INSERT INTO Staff (National_ID, Staff_Role, First_Name, staff_Status, Mid_Init, Last_Name, Salary, Supervisor_national_id, Department_ID)
-                                    VALUES (@NID, @Role, @FName, @Status, @Mid, @LName, @Salary, @SupervisorID, @DeptID)";
+                        cmd.CommandText = @"UPDATE Staff SET 
+                                        Staff_Role = @Role, 
+                                        First_Name = @FName, 
+                                        staff_Status = @Status, 
+                                        Mid_Init = @Mid, 
+                                        Last_Name = @LName, 
+                                        Salary = @Salary, 
+                                        Supervisor_national_id = @SupervisorID, 
+                                        Department_ID = @DeptID
+                                    WHERE National_ID = @NID";
                         cmd.Parameters.AddWithValue("@NID", Controls["txtNational_ID"].Text);
                         cmd.Parameters.AddWithValue("@Role", Controls["txtRole"].Text);
                         cmd.Parameters.AddWithValue("@FName", Controls["txtFirst_Name"].Text);
@@ -743,16 +749,21 @@ namespace HotelManagementSystem
                         break;
 
                     case "Department":
-                        cmd.CommandText = @"INSERT INTO Department (Department_ID, Department_Name, Hotel_ZIP_Code)
-                                    VALUES (@DeptID, @DeptName, @HotelZip)";
+                        cmd.CommandText = @"UPDATE Department SET 
+                                        Department_Name = @DeptName, 
+                                        Hotel_ZIP_Code = @HotelZip
+                                    WHERE Department_ID = @DeptID";
                         cmd.Parameters.AddWithValue("@DeptID", Controls["txtDepartment_ID"].Text);
                         cmd.Parameters.AddWithValue("@DeptName", Controls["txtDepartment_Name"].Text);
                         cmd.Parameters.AddWithValue("@HotelZip", Controls["txtHotel_ZIP_Code"].Text);
                         break;
 
                     case "Service":
-                        cmd.CommandText = @"INSERT INTO Service (Service_ID, ServiceName, Price, Guest_National_ID)
-                                    VALUES (@SID, @SName, @Price, @GuestID)";
+                        cmd.CommandText = @"UPDATE Service SET 
+                                        ServiceName = @SName, 
+                                        Price = @Price, 
+                                        Guest_National_ID = @GuestID
+                                    WHERE Service_ID = @SID";
                         cmd.Parameters.AddWithValue("@SID", Controls["txtService_ID"].Text);
                         cmd.Parameters.AddWithValue("@SName", Controls["txtService_Name"].Text);
                         cmd.Parameters.AddWithValue("@Price", Controls["txtPrice"].Text);
@@ -760,8 +771,10 @@ namespace HotelManagementSystem
                         break;
 
                     case "Review":
-                        cmd.CommandText = @"INSERT INTO Review (Guest_National_ID, Hotel_ZIP_Code, Rating, Comment)
-                                    VALUES (@GNID, @HZIP, @Rating, @cmnt)";
+                        cmd.CommandText = @"UPDATE Review SET 
+                                        Rating = @Rating, 
+                                        Comment = @cmnt
+                                    WHERE Guest_National_ID = @GNID AND Hotel_ZIP_Code = @HZIP";
                         cmd.Parameters.AddWithValue("@GNID", Controls["txtGuest_National_ID"].Text);
                         cmd.Parameters.AddWithValue("@HZIP", Controls["txtHotel_ZIP_Code"].Text);
                         cmd.Parameters.AddWithValue("@Rating", ((TrackBar)Controls["sliderRating"]).Value);
@@ -771,8 +784,11 @@ namespace HotelManagementSystem
 
                 try
                 {
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Done", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                        MessageBox.Show("Update successful", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("No matching record found to update.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 catch (Exception ex)
                 {
@@ -783,8 +799,130 @@ namespace HotelManagementSystem
 
         private void View_Details_Click(object sender, EventArgs e)
         {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                string selectedTable = Choose_table.SelectedItem?.ToString();
 
+                if (string.IsNullOrEmpty(selectedTable))
+                {
+                    MessageBox.Show("No table selected.");
+                    return;
+                }
 
+                switch (selectedTable)
+                {
+                    case "Hotel":
+                        cmd.CommandText = "SELECT * FROM Hotel WHERE Zip_code = @Zip";
+                        cmd.Parameters.AddWithValue("@Zip", Controls["txtZip_code"].Text);
+                        break;
+                    case "Room":
+                        cmd.CommandText = "SELECT * FROM Room WHERE Room_ID = @ID";
+                        cmd.Parameters.AddWithValue("@ID", Controls["txtRoom_ID"].Text);
+                        break;
+                    case "Staff":
+                        cmd.CommandText = "SELECT * FROM Staff WHERE National_ID = @NID";
+                        cmd.Parameters.AddWithValue("@NID", Controls["txtNational_ID"].Text);
+                        break;
+                    case "Department":
+                        cmd.CommandText = "SELECT * FROM Department WHERE Department_ID = @DeptID";
+                        cmd.Parameters.AddWithValue("@DeptID", Controls["txtDepartment_ID"].Text);
+                        break;
+                    case "Service":
+                        cmd.CommandText = "SELECT * FROM Service WHERE Service_ID = @SID";
+                        cmd.Parameters.AddWithValue("@SID", Controls["txtService_ID"].Text);
+                        break;
+                    case "Review":
+                        cmd.CommandText = "SELECT * FROM Review WHERE Guest_National_ID = @GNID AND Hotel_ZIP_Code = @HZIP";
+                        cmd.Parameters.AddWithValue("@GNID", Controls["txtGuest_National_ID"].Text);
+                        cmd.Parameters.AddWithValue("@HZIP", Controls["txtHotel_ZIP_Code"].Text);
+                        break;
+                }
+
+                try
+                {
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        switch (selectedTable)
+                        {
+                            case "Hotel":
+                                Controls["txtCity"].Text = reader["City"].ToString();
+                                Controls["txtCountry"].Text = reader["Country"].ToString();
+                                Controls["txtState"].Text = reader["Hotel_state"].ToString();
+                                Controls["txtStreet_Name"].Text = reader["Street_Name"].ToString();
+                                Controls["txtRoom_Count"].Text = reader["Room_Count"].ToString();
+                                Controls["txtEmail"].Text = reader["Email"].ToString();
+                                Controls["txtZip_code"].Enabled = false;
+                                break;
+
+                            case "Room":
+                                Controls["txtRoom_Number"].Text = reader["Room_Number"].ToString();
+                                Controls["txtRoom_Type"].Text = reader["Room_Type"].ToString();
+                                Controls["txtFloor"].Text = reader["room_Floor"].ToString();
+                                Controls["txtstatus_box"].Text = reader["room_Status"].ToString();
+                                Controls["txtSTD_Night_Price"].Text = reader["STD_Night_Price"].ToString();
+                                Controls["txtHotel_ZIP_Code"].Text = reader["Hotel_ZIP_Code"].ToString();
+                                Controls["txtRoom_ID"].Enabled = false;
+                                break;
+
+                            case "Staff":
+                                Controls["txtRole"].Text = reader["Staff_Role"].ToString();
+                                Controls["txtFirst_Name"].Text = reader["First_Name"].ToString();
+                                Controls["txtStatus_box"].Text = reader["staff_Status"].ToString();
+                                Controls["txtMid_Init"].Text = reader["Mid_Init"].ToString();
+                                Controls["txtLast_Name"].Text = reader["Last_Name"].ToString();
+                                Controls["txtSalary"].Text = reader["Salary"].ToString();
+                                Controls["txtSupervisor_national_id"].Text = reader["Supervisor_national_id"].ToString();
+                                Controls["txtDepartment_ID"].Text = reader["Department_ID"].ToString();
+                                Controls["txtNational_ID"].Enabled = false;
+                                break;
+
+                            case "Department":
+                                Controls["txtDepartment_Name"].Text = reader["Department_Name"].ToString();
+                                Controls["txtHotel_ZIP_Code"].Text = reader["Hotel_ZIP_Code"].ToString();
+                                Controls["txtDepartment_ID"].Enabled = false;
+                                break;
+
+                            case "Service":
+                                Controls["txtService_Name"].Text = reader["ServiceName"].ToString();
+                                Controls["txtPrice"].Text = reader["Price"].ToString();
+                                Controls["txtGuest_National_ID"].Text = reader["Guest_National_ID"].ToString();
+                                Controls["txtService_ID"].Enabled = false;
+                                break;
+
+                            case "Review":
+                                ((TrackBar)Controls["sliderRating"]).Value = Convert.ToInt32(reader["Rating"]);
+                                Controls["txtComment_box"].Text = reader["Comment"].ToString();
+                                Controls["txtGuest_National_ID"].Enabled = false;
+                                Controls["txtHotel_ZIP_Code"].Enabled = false;
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Record not found.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {   
+                this.Hide();
+
+                using (MainMenu mainMenu = new MainMenu())
+                {
+                    mainMenu.ShowDialog();
+                }
+
+                this.Close();
         }
     }
 }

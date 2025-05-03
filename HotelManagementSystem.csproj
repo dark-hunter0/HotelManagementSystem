@@ -122,6 +122,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ItemExists.resx">
+      <DependentUpon>ItemExists.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="systemManagement.resx">
       <DependentUpon>systemManagement.cs</DependentUpon>
     </EmbeddedResource>
