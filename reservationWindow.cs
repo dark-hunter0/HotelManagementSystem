@@ -236,7 +236,7 @@ namespace HotelManagementSystem
          
             if (String.IsNullOrWhiteSpace(this.guest_NID.Text) ||
                 String.IsNullOrWhiteSpace(this.manager_NID.Text) ||
-                this.payment_type.SelectedItem == null || // Check if an item is selected
+                this.payment_type.SelectedItem == null || // Checks if an item is selected
                 String.IsNullOrWhiteSpace(this.ref_no.Text))
             {
                 MessageBox.Show("Please ensure Guest NID, Manager NID, Payment Type, and Ref No are all filled.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);

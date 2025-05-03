@@ -16,9 +16,7 @@ namespace HotelManagementSystem
             InitializeComponent();
             Guest_Info_Box.Visible = false;
             this.SuspendLayout();
-            // 
-            // Guest_Select
-            // 
+            
             this.ClientSize = new System.Drawing.Size(1058, 716);
             this.Name = "Guest_Select";
             this.BackColor = Color.PaleTurquoise;

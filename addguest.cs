@@ -26,7 +26,7 @@ namespace HotelManagementSystem
                     int result = DatabaseHelper.AddGuest(
                         View_NID.Text,
                         View_FN.Text,
-                        GuestMiddleinitial.Text, // Middle initial added here
+                        GuestMiddleinitial.Text,
                         View_LN.Text,
                         View_Email.Text,
                         View_Add.Text,

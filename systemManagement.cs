@@ -17,9 +17,7 @@ namespace HotelManagementSystem
         {
             InitializeComponent();
             this.SuspendLayout();
-            // 
-            // Form1
-            // 
+            
             this.ClientSize = new System.Drawing.Size(1147, 667);
             this.Name = "Form1";
             this.BackColor = Color.PaleTurquoise;
@@ -46,7 +44,6 @@ namespace HotelManagementSystem
                 control.Dispose();
             }
 
-            // Define fields based on selected table
             List<string> fields = new List<string>();
             switch (Choose_table.SelectedItem.ToString())
             {
@@ -830,12 +827,9 @@ namespace HotelManagementSystem
         //             }
         //         }
         //
-        //         // Bind the DataTable to the DataGridView
-        //         // Assumes you have a DataGridView named dataGridView1 on your form
         //         if (dataGridView1 != null)
         //         {
         //             dataGridView1.DataSource = dataTable;
-        //             // Optional: Auto-resize columns
         //             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         //         }
         //         else
@@ -969,7 +963,6 @@ namespace HotelManagementSystem
         //     {
         //         conn.Open();
         //
-        //         // Check if the record exists
         //         string checkCmdText = $"SELECT COUNT(*) FROM {selectedTable} WHERE " +
         //                               string.Join(" AND ", parameters.Select(p => $"{p.Key} = {p.Value.ParameterName}"));
         //
@@ -985,7 +978,6 @@ namespace HotelManagementSystem
         //             }
         //         }
         //
-        //         // Perform deletion
         //         string deleteCmdText = $"DELETE FROM {selectedTable} WHERE " +
         //                                string.Join(" AND ", parameters.Select(p => $"{p.Key} = {p.Value.ParameterName}"));
         //

@@ -17,9 +17,7 @@ namespace HotelManagementSystem
         {
             InitializeComponent();
             this.SuspendLayout();
-            // 
-            // Form1
-            // 
+            
             this.ClientSize = new System.Drawing.Size(1147, 667);
             this.Name = "Form1";
             this.BackColor = Color.PaleTurquoise;
@@ -44,7 +42,7 @@ namespace HotelManagementSystem
                 control.Dispose();
             }
 
-            // Define fields based on selected table
+            // change  feilds based on selected table
             List<string> fields = new List<string>();
             switch (Choose_table.SelectedItem.ToString())
             {

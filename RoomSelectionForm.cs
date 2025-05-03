@@ -35,7 +35,6 @@ namespace HotelManagementSystem
                 {
                     conn.Open();
 
-                    // Clear existing data but preserve columns
                     roomDataGridView.DataSource = null;
 
                     // Get data from database s
@@ -53,10 +52,8 @@ namespace HotelManagementSystem
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
 
-                    // Configure DataGridView
-                    roomDataGridView.AutoGenerateColumns = false; // Prevent auto-generation
+                    roomDataGridView.AutoGenerateColumns = false; // Prevent autogeneration
 
-                    // Explicit column mapping - match DataPropertyName to database column aliases
                     roomDataGridView.Columns["dataGridViewTextBoxColumn1"].DataPropertyName = "Room Number";
                     roomDataGridView.Columns["dataGridViewTextBoxColumn2"].DataPropertyName = "Room Type";
                     roomDataGridView.Columns["dataGridViewTextBoxColumn3"].DataPropertyName = "Floor";
@@ -65,7 +62,6 @@ namespace HotelManagementSystem
                     roomDataGridView.Columns["dataGridViewTextBoxColumn6"].DataPropertyName = "Hotel";
                     roomDataGridView.Columns["dataGridViewTextBoxColumn7"].DataPropertyName = "Room ID";
 
-                    // Bind the data
                     roomDataGridView.DataSource = dt;
                     roomDataGridView.Refresh();
                     roomDataGridView.ClearSelection();
@@ -87,7 +83,6 @@ namespace HotelManagementSystem
 
             DataGridViewRow selectedRow = roomDataGridView.SelectedRows[0];
 
-            // Safely get Room ID and Room Number with null checks
             if (selectedRow.Cells["dataGridViewTextBoxColumn7"]?.Value == null ||
                 selectedRow.Cells["dataGridViewTextBoxColumn1"]?.Value == null)
             {
@@ -136,7 +131,6 @@ namespace HotelManagementSystem
 
                     
 
-                    // Updated query without the last_updated column
                     string updateQuery = @"UPDATE Room 
                                          SET room_status = @stat
                                          WHERE Room_ID = @RoomID";
@@ -154,7 +148,7 @@ namespace HotelManagementSystem
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show($"Room {roomId} marked as {invStatus}");
-                            LoadRoomData(); // Refresh the grid
+                            LoadRoomData();
                         }
                         else
                         {
@@ -193,7 +187,6 @@ namespace HotelManagementSystem
                     conn.Open();
                     roomDataGridView.DataSource = null;
 
-                    // Base query
                     string query = @"SELECT 
                                 Room_number AS [Room Number],
                                 Room_type AS [Room Type],
@@ -204,7 +197,6 @@ namespace HotelManagementSystem
                                 Room_ID AS [Room ID]
                              FROM Room";
 
-                    // Dynamic WHERE clause
                     List<string> conditions = new List<string>();
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = conn;
@@ -233,7 +225,6 @@ namespace HotelManagementSystem
                         cmd.Parameters.AddWithValue("@Branch", branch);
                     }
 
-                    // true = only show available rooms
                     if (status)
                     {
                         conditions.Add("room_status = 'Available'");

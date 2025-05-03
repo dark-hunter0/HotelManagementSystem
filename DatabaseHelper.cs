@@ -23,7 +23,6 @@ namespace HotelManagementSystem
             }
         }
 
-        // Your exact AddGuest method as provided
         public static int AddGuest(string nid, string firstName, string middleInitial, string lastName,
                                  string email, string address, string phone)
         {
@@ -35,7 +34,6 @@ namespace HotelManagementSystem
                 cmd.Parameters.AddWithValue("@nid", nid);
                 cmd.Parameters.AddWithValue("@fn", firstName);
 
-                // Your original middle initial handling
                 if (string.IsNullOrWhiteSpace(middleInitial))
                 {
                     cmd.Parameters.AddWithValue("@mi", middleInitial);

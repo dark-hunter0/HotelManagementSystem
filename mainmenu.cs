@@ -11,9 +11,7 @@ namespace HotelManagementSystem
            
             SetupMenu();
             this.SuspendLayout();
-            // 
-            // MainMenu
-            // 
+            
             this.ClientSize = new System.Drawing.Size(784, 516);
             this.Name = "MainMenu";
             this.ResumeLayout(false);
