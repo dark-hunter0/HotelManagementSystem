@@ -781,6 +781,15 @@ namespace HotelManagementSystem
             }
         }
 
+        private void View_Details_Click(object sender, EventArgs e)
+        {
+            ItemExists form2 = new ItemExists();
+            form2.Show();
+            this.Hide();
+
+        }
+    }
+
         // private void show_button_Click(object sender, EventArgs e)
         // {
         //     string selectedTable = Choose_table.SelectedItem?.ToString();
@@ -900,7 +909,7 @@ namespace HotelManagementSystem
         //     }
         // }
 
-           
+
 
 
         // private void Delete_button_click(object sender, EventArgs e)
@@ -995,4 +1004,4 @@ namespace HotelManagementSystem
 
 
     }
-}
+
